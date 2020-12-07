@@ -29,13 +29,13 @@ export class AuthService {
             
             this.stateService.setIsLoggedIn(true);
             this.stateService.setLoggedInUserEmail(email); 
-            // this.router.navigate(['/home']);
+             this.router.navigate(['/home']);
 
     })
     .catch(err => {
               this.stateService.setErrorMessage(err.toString());
               console.log(err.toString());
-             // this.router.navigate(['/error'])
+              this.router.navigate(['/error'])
 
     })
                      
@@ -51,12 +51,12 @@ export class AuthService {
       console.log(data);
       this.stateService.setIsLoggedIn(true);
       this.stateService.setLoggedInUserEmail(email);
-      // this.router.navigate(['/home']);
+       this.router.navigate(['/home']);
     })
     .catch(err=> {
       console.log(err);
       this.stateService.setErrorMessage(err.toString());
-      // this.router.navigate(['/error']);
+       this.router.navigate(['/error']);
     })
   }
 //-------------------------------------------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ export class AuthService {
     this.stateService.setIsLoggedIn(false);
     this.stateService.setLoggedInUserEmail('anonimous');
     console.log("Излезли сме и се прехвърляме към Home.")
-   // this.router.navigate(['/logout']);
+    this.router.navigate(['/logout']);
   }
 //------------------------------------------------------------------------------------------------------------------------
   getAllUsers(): Observable<IUser[]> {
@@ -85,7 +85,7 @@ saveUser(email: string, role: string) {
   .catch(error => {
       this.stateService.setErrorMessage(error.toString());
       console.log(error.toString());
-      // this.router.navigate(['/error']);
+       this.router.navigate(['/error']);
   })
 
 }

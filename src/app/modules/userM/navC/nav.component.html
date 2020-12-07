@@ -1,0 +1,32 @@
+<nav>
+    <span class="title">Electronics MUSEUM</span>
+    
+    <div>
+        <ul>
+            <span *ngIf="isLoggedIn" class="welcome">
+                <a>Welcome {{ loggedInUserEmail }} </a>
+            </span>
+            <li>
+                <a class="change-pointer" (click)="goToAboutPage()">About</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goToHomePage()">Home</a>
+            </li>
+            <li *ngIf='!isLoggedIn'>
+                <a class="change-pointer" (click)="goToLogin()">Login</a>
+            </li>
+            <li *ngIf='!isLoggedIn'>
+                <a class="change-pointer" (click)="goToRegister()">Register</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goToAdminConsole()" *ngIf="isLoggedIn && isAdmin">Admin Console</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="logoutHandler()" *ngIf='isLoggedIn'>Logout</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
+

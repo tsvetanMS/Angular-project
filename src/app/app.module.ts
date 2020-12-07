@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyfirebaseModule } from './modules/firebaseM/myfirebase.module';
 import { MyCommonModule } from './modules/commonM/common.module';
+import { UserModule } from './modules/userM/user.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MyCommonModule } from './modules/commonM/common.module';
     BrowserModule,
     AppRoutingModule,
     MyfirebaseModule,
-    MyCommonModule
+    MyCommonModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
