@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirebaseModule } from './modules/firebaseM/firebase.module';
+import { MyfirebaseModule } from './modules/firebaseM/myfirebase.module';
+import { MyCommonModule } from './modules/commonM/common.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { FirebaseModule } from './modules/firebaseM/firebase.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FirebaseModule
+    MyfirebaseModule,
+    MyCommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

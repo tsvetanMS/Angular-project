@@ -35,7 +35,7 @@ export class ElementsService {
 //------------------------------------------------------------------------------------------------------------------------------------------
 
    goToThirdComponent() {
-           this.router.navigate(['/third']);
+         //  this.router.navigate(['/third']);
        }
 //----------------------------------------------------------------------------------------------------------------------------------------
    getData (): IElementID[] {
@@ -98,13 +98,13 @@ deleteElement(id: string) {
        console.log('Element is deleted!');
        this.stateService.setIsDeleted(true);
        this.stateService.setElementNameForEdit("default");
-       this.router.navigate(['/deletemessage']);
+      // this.router.navigate(['/deletemessage']);
        
    })
    .catch(error => {
        this.stateService.setErrorMessage(error.toString());
        console.log(error.toString());
-       this.router.navigate(['/error']);
+     //  this.router.navigate(['/error']);
    }).finally();
 }
 
@@ -115,14 +115,14 @@ updateElement (id: string, pictureID: string, type: string, name: string, parame
        console.log('Element is updated.');
        this.stateService.setElementNameForEdit("default");
        this.stateService.setIsEdited(true);
-       this.router.navigate(['/editmessage']);
+      // this.router.navigate(['/editmessage']);
        
 
    })
    .catch(error => {
        this.stateService.setErrorMessage(error.toString());
        console.log(error.toString());
-       this.router.navigate(['/error']);
+     //  this.router.navigate(['/error']);
    }).finally();
 
   
@@ -165,12 +165,12 @@ saveElement(pictureID: string, type: string, name: string, parameters: string, p
    this.fireDB.collection<IElement>('elements').add({pictureID, type, name, parameters, producer, description })
    .then(() => {
        console.log('Element is saved.');
-       this.router.navigate(['/addmessage']);
+      // this.router.navigate(['/addmessage']);
    })
    .catch(error => {
        this.stateService.setErrorMessage(error.toString());
        console.log(error.toString());
-       this.router.navigate(['/error']);
+     //  this.router.navigate(['/error']);
    })
 
 }

@@ -1,0 +1,23 @@
+
+footer {
+    width: 99%;
+    margin: 0 auto;
+    border: 2px solid black;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer {
+    background-color: #1EC778;
+    background: -webkit-linear-gradient(to right, #1EC778 0%, #17A2B8 50%);
+    background: -moz-linear-gradient(to right, #1EC778 0%, #17A2B8 50%);
+    background: linear-gradient(to right, #1EC778 0%, #17A2B8 50%);
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    color: white;
+
+  
+}
