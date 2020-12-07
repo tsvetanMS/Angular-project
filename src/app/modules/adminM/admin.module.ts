@@ -11,14 +11,15 @@ import { FindComponent } from './findC/find.component';
 import { NotfoundComponent } from './notFoundC/notfound.component';
 import { UsersComponent } from './usersC/users.component';
 import { MyCommonModule } from '../commonM/common.module';
+import { UnderconstructionComponent } from './underconstructionC/underconstruction.component';
 
 
 
 @NgModule({
   declarations: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
-                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent],
+                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent],
   exports: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
-            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent],
+            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent],
   imports: [
     CommonModule,
     FormsModule,
