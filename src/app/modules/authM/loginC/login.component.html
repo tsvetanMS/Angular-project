@@ -1,0 +1,40 @@
+
+<!-- <app-nav></app-nav> -->
+
+<section>
+  <h1>Login</h1>
+  <hr>
+  <form #f="ngForm" (ngSubmit)="loginHandler(f.value.email, f.value.password)">
+
+      <p class="please">Please enter email and password to login.</p>
+      <div class="input-div">
+        <div>
+          <span>
+            <label class="email-label" for="email"><b>Email</b></label>
+            <input size="30" class="input-email" type="text" placeholder="enter email here" name="email" id="email" ngModel required email #emailInput="ngModel">
+          </span>
+          
+          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.required"> Полето за email неможе да е празно!</div>
+          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.email"> Въведения email е грешен!</div>
+        </div>
+        
+        <div>
+          <span>
+          <label class="password-label" for="password"><b>Password</b></label>
+          <input size="30" class="input-password" type="password" placeholder="enter password here" name="password" id="password" minlength="6" ngModel required #passwordInput="ngModel">
+          </span>
+          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.required"> Полето за парола неможе да е празно!</div>
+          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.minlength"> Дължината на паролата е минимум 6 символа! </div>
+        </div>
+        
+       </div>   
+      
+      
+      <div class="button-div">
+        <button [disabled] = "f.invalid" type="submit">Login</button>
+      </div>
+     
+  </form>
+  <hr>
+</section>
+

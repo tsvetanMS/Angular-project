@@ -8,7 +8,7 @@ import { ShowComponent } from './showC/show.component';
 
 @NgModule({
   declarations: [HomeComponent, NavComponent, ShowComponent],
-  exports: [HomeComponent, NavComponent],
+  exports: [HomeComponent, NavComponent, ShowComponent],
   imports: [
     CommonModule
   ]
