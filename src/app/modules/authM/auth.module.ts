@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logoutC/logout.component';
 import { RegisterComponent } from './registerC/register.component';
 import { AutherrorComponent } from './authErrorC/autherror.component';
+import { MyCommonModule } from '../commonM/common.module';
 
 
 
@@ -13,7 +14,8 @@ import { AutherrorComponent } from './authErrorC/autherror.component';
   exports: [LoginComponent, LogoutComponent, RegisterComponent, AutherrorComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MyCommonModule
   ]
 })
 export class AuthModule { }

@@ -7,6 +7,7 @@ import { MyfirebaseModule } from './modules/firebaseM/myfirebase.module';
 import { MyCommonModule } from './modules/commonM/common.module';
 import { UserModule } from './modules/userM/user.module';
 import { AuthModule } from './modules/authM/auth.module';
+import { AdminModule } from './modules/adminM/admin.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthModule } from './modules/authM/auth.module';
     MyfirebaseModule,
     MyCommonModule,
     UserModule,
-    AuthModule
+    AuthModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

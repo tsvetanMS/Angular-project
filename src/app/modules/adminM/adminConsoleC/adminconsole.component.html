@@ -1,0 +1,31 @@
+<nav>
+    <span class="title">Administration Console</span>
+    
+    <div>
+        <ul>
+            <span class="welcome">
+                <a>Welcome {{ loggedUserEmail }} </a>
+            </span>
+            <li>
+                <a class="change-pointer" (click)="goToAddElement()">Add</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goToFindElement()">Find</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goToManageUsers()">Users</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goToStatistics()">Statistics</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="goBack()">Back</a>
+            </li>
+            <li>
+                <a class="change-pointer" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+

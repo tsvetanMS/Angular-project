@@ -1,0 +1,13 @@
+<app-adminconsole></app-adminconsole>
+
+
+<section>
+    <h2> Users List </h2>
+    <hr>
+        <div class="holder" *ngFor="let user of users$ | async">
+            <p> Username: {{ user.email }}</p>
+            <p> Role: {{ user.role }}</p>    
+        </div>
+
+   <hr>
+</section>

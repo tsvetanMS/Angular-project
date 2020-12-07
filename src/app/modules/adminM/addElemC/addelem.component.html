@@ -1,0 +1,76 @@
+
+<!-- <app-adminconsole></app-adminconsole> -->
+
+
+
+<section>
+    <h1>Add Electronic Element</h1>
+    <hr>
+
+    <form #f="ngForm" (ngSubmit)="addElementHandler(f.value.pictureID, f.value.eltype, f.value.name, f.value.parameters, f.value.producer, f.value.description)">
+        
+        <div class="line-holder">
+            <div>
+                <label class="picture-label" for="pictureID">Picture ID</label>
+                <input class="input-type-one"  type="text" id="pictureID" placeholder="enter picture id here..." name="pictureID" minlength="33" ngModel required #pictureIDInput="ngModel">
+            </div>
+            <div>
+                <label class="type-label" for="eltype">Type</label>
+                <select class="input-type-one" id="eltype" name="eltype" ngModel>
+                    <option *ngFor="let elemtype of typesArr" [value]="elemtype">
+                        {{ elemtype }}
+                    </option> 
+                </select>
+            </div>
+        </div>
+        <div class="input-errors" *ngIf="pictureIDInput.touched && pictureIDInput.errors?.minlength">Google Drive picture ID must be exactly 33 symbols long!</div>
+        <div class="input-errors" *ngIf="pictureIDInput.touched && pictureIDInput.errors?.required">Picture field can not be empty!</div>
+        
+        <div class="line-holder">
+            <div>
+                <label class="name-label" for="name">Element Name</label>
+                <input class="input-type-one" size="31" type="text" id="name"  placeholder="enter name here..." name="name" ngModel maxlength="30" required #nameInput="ngModel">
+            </div>
+            <div>
+                <label for="parameters">Parameters</label>
+                <input class="input-type-one" size="40" type="text" id="parameters" placeholder="enter parameters here..." name="parameters" minlength="10" maxlength="100" ngModel required #parametersInput="ngModel">
+            </div>
+        </div>
+        <div class="input-errors" *ngIf="nameInput.touched && nameInput.errors?.required">Name field can not be empty!</div>
+        <div class="input-errors" *ngIf="nameInput.touched && nameInput.errors?.maxlength">Name field must be less then 30 symbols long!</div>
+        <div class="input-errors" *ngIf="parametersInput.touched && parametersInput.errors?.required">Parameters field can not be empty!</div>
+        <div class="input-errors" *ngIf="parametersInput.touched && parametersInput.errors?.minlength">Parameters field must contains minimum 10 symbols!</div>
+        <div class="input-errors" *ngIf="parametersInput.touched && parametersInput.errors?.maxlength">Parameters field must be less then 100 symbols long!</div>
+        
+
+        <div class="line-holder">
+            <div>
+                <label for="producer">Producer Country</label>
+                <input class="input-type-one" size="31" type="text" id="producer"  placeholder="enter producer country here..." name="producer" ngModel required #producerInput="ngModel">
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <input class="input-type-one" size="40" type="text" id="description" placeholder="enter description here..." name="description" minlength="10" maxlength="100" ngModel required #descriptionInput="ngModel">
+            </div>
+        </div>
+        <div class="input-errors" *ngIf="producerInput.touched && producerInput.errors?.required">Producer field can not be empty!</div>
+        <div class="input-errors" *ngIf="descriptionInput.touched && descriptionInput.errors?.required">Description field can not be empty!</div>
+        <div class="input-errors" *ngIf="descriptionInput.touched && descriptionInput.errors?.minlength">Description field must contains minimum 10 symbols!</div>
+        <div class="input-errors" *ngIf="descriptionInput.touched && descriptionInput.errors?.maxlength">Description field must be less then 100 symbols long!</div>
+        
+        
+        <div class="button-div">
+            <button [disabled] = "f.invalid" type="submit">Add Element</button>
+        </div>
+
+
+
+        <hr>
+        
+    </form>
+
+</section>
+
+
+
+

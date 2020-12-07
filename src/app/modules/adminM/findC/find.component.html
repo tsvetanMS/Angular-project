@@ -1,0 +1,26 @@
+<app-adminconsole></app-adminconsole>
+
+<section>
+    <h2>Find Electronic Element</h2>
+    <hr>
+    <form #f="ngForm" (ngSubmit)="findElement(f.value.name)">
+
+        <div class="line-holder">
+            <label class="name-label" for="name">Find element by name</label>
+            <input class="input-type-one" type="text" id="name" placeholder="enter name here..." name="name" maxlength="30" ngModel required #nameInput="ngModel">
+        </div>
+        
+        
+        <div class="input-errors" *ngIf="nameInput.touched && nameInput.errors?.required">Name field can not be empty!</div>
+        <div class="input-errors" *ngIf="nameInput.touched && nameInput.errors?.maxlength">Name field must be less then 30 symbols long!</div>
+               
+        <div class="button-div">
+            <button [disabled] = "f.invalid" type="submit">Find</button>
+        </div>
+        
+    </form>
+    <hr>
+
+</section>
+
+

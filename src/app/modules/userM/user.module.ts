@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './homeC/home.component';
 import { ShowComponent } from './showC/show.component';
+import { MyCommonModule } from '../commonM/common.module';
 
 
 
@@ -9,7 +10,8 @@ import { ShowComponent } from './showC/show.component';
   declarations: [HomeComponent, ShowComponent],
   exports: [HomeComponent, ShowComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    MyCommonModule
   ]
 })
 export class UserModule { }
