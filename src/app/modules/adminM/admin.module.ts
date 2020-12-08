@@ -12,14 +12,17 @@ import { NotfoundComponent } from './notFoundC/notfound.component';
 import { UsersComponent } from './usersC/users.component';
 import { MyCommonModule } from '../commonM/common.module';
 import { UnderconstructionComponent } from './underconstructionC/underconstruction.component';
+import { AlreadyexistComponent } from './alreadyExistC/alreadyexist.component';
 
 
 
 @NgModule({
   declarations: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
-                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent],
+                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
+                 AlreadyexistComponent],
   exports: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
-            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent],
+            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
+            AlreadyexistComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class StateService {
   private _elementNameForEdit: string = "default";
   private _isDeleted: boolean = false;
   private _isEdited: boolean = false;
+  private _isElementExist: boolean = false;
+
+ 
 
   constructor() { }
 
@@ -69,6 +73,13 @@ export class StateService {
   }
   setIsEdited(isEdited: boolean){
     this._isEdited = isEdited;
+  }
+
+  getIsElementExist() {
+    return this._isElementExist;
+  }
+  setIsElementExist(isExist: boolean) {
+    this._isElementExist = isExist;
   }
 
 }

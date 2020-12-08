@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddelemComponent } from './modules/adminM/addElemC/addelem.component';
 import { AddmessageComponent } from './modules/adminM/addMessageC/addmessage.component';
 import { AdminconsoleComponent } from './modules/adminM/adminConsoleC/adminconsole.component';
+import { AlreadyexistComponent } from './modules/adminM/alreadyExistC/alreadyexist.component';
 import { DeletemessageComponent } from './modules/adminM/deleteMessageC/deletemessage.component';
 import { EditComponent } from './modules/adminM/editC/edit.component';
 import { EditmessageComponent } from './modules/adminM/editMessageC/editmessage.component';
@@ -27,17 +28,18 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent},
-  { path: 'element/add', component: AddelemComponent},
+  { path: 'add', component: AddelemComponent},
   { path: 'error', component: AutherrorComponent},
   { path: 'show', component: ShowComponent},
   { path: 'find', component: FindComponent},
   { path: 'notfound', component: NotfoundComponent},
-  { path: 'edit', component: EditComponent},
-  { path: 'editmessage', component: EditmessageComponent},
+  { path: 'edit', component: EditComponent, pathMatch: 'full'},
+  { path: 'editmessage', component: EditmessageComponent, pathMatch: 'full'},
   { path: 'deletemessage', component: DeletemessageComponent},
   { path: 'addmessage', component: AddmessageComponent},
   { path: 'users', component: UsersComponent},
   { path: 'underconstruction', component: UnderconstructionComponent},
+  { path: 'exist', component: AlreadyexistComponent},
   { path: '**', component: HomeComponent}
 
 

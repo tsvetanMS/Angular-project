@@ -25,37 +25,23 @@ export class FindComponent implements OnInit {
 
 
   findElement(name: string) {
-    //console.log("От компонента извикваме Element Service.")
-   
+       
     this.findedElement$ = this.elementService.loadElementByName(name);
-
-        
+     
     
     this.findedElement$.subscribe(data => {
-        //console.log("Вътре сме в абонамента.")
-      console.log(data);
-      
-      
+       
       if(data.length == 0) {
-          console.log('Не е намерен елемент.')
-          this.isFound = false;
           this.router.navigate(['/notfound']);
       } else {
-          console.log("Елемента е намерен");
-          this.stateService.setElementNameForEdit(name);
           
+          this.stateService.setElementNameForEdit(name);
           this.router.navigate(['/edit']);
-          this.isFound = true;
       }
-      
-    });
-    
-   
+    }).unsubscribe;
   }
 
   ngOnDestroy() {
-   //this.findedElement$.subscribe().unsubscribe();
-   // така сложена тук работи, след edit прозореца за edit изчезва
    this.stateService.setIsEdited(false);
   }
  

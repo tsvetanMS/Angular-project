@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { StateService } from '../stateS/state.service';
+// import 'rxjs/add/operator/toPromise';
 
 
 @Injectable({
@@ -24,7 +25,6 @@ export class ElementsService {
    /* Ще пазим данните в ElementService-а. Ще ги подаваме към компонента със Subject */
    elementsSubject = new Subject<IElementID[]>();
   
-
    constructor (
        private fireDB: AngularFirestore,
        private router: Router,
@@ -105,17 +105,19 @@ deleteElement(id: string) {
        this.stateService.setErrorMessage(error.toString());
        console.log(error.toString());
        this.router.navigate(['/error']);
-   }).finally();
+   });
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------
+
 updateElement (id: string, pictureID: string, type: string, name: string, parameters: string, producer: string, description: string) {
    this.fireDB.collection<IElement>('elements').doc(id).update({pictureID, type, name, parameters, producer, description })
    .then(() => {
        console.log('Element is updated.');
        this.stateService.setElementNameForEdit("default");
        this.stateService.setIsEdited(true);
-       this.router.navigate(['/editmessage']);
+
+       //this.router.navigate(['/editmessage']);
        
 
    })
@@ -123,8 +125,12 @@ updateElement (id: string, pictureID: string, type: string, name: string, parame
        this.stateService.setErrorMessage(error.toString());
        console.log(error.toString());
        this.router.navigate(['/error']);
-   }).finally();
-
+   })
+   /*
+   .finally(()=> {
+    console.log("Излизаме от updateElement услугата и се връщаме в edit компонента.");   
+    });
+  */
   
 }
 //---------------------------------------------------------------------------------------------------------------------------------
@@ -164,17 +170,30 @@ saveElement(pictureID: string, type: string, name: string, parameters: string, p
 
    this.fireDB.collection<IElement>('elements').add({pictureID, type, name, parameters, producer, description })
    .then(() => {
-       console.log('Element is saved.');
        this.router.navigate(['/addmessage']);
    })
    .catch(error => {
        this.stateService.setErrorMessage(error.toString());
-       console.log(error.toString());
        this.router.navigate(['/error']);
    })
 
 }
 //------------------------------------------------------------------------------------------------------------------------------------------
   
+checkExistenceOfElementByName(name: string) {
+    
+    this.loadElementByName(name)
+    .subscribe(data => {
+       
+        if(data.length == 0) {
+           this.stateService.setIsElementExist(false);
+        } else {
+           this.stateService.setIsElementExist(true);
+        }
 
+    }).unsubscribe;
+    
+       
+}
+//---------------------------------------------------------------------------------------------------------------------------------
 }

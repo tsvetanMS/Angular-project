@@ -18,7 +18,7 @@ export class AdminconsoleComponent implements OnInit {
 
 
   goToAddElement() {
-    this.router.navigate(['/element', 'add']);
+    this.router.navigate(['/add']);
   }
 
   goToFindElement() {
