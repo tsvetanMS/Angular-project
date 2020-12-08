@@ -31,6 +31,8 @@ export class FindComponent implements OnInit {
     
     this.findedElement$.subscribe(data => {
        
+      console.log(data);
+
       if(data.length == 0) {
           this.router.navigate(['/notfound']);
       } else {
@@ -38,6 +40,11 @@ export class FindComponent implements OnInit {
           this.stateService.setElementNameForEdit(name);
           this.router.navigate(['/edit']);
       }
+
+
+    }, error=> {
+      this.stateService.setErrorMessage(error.toString());
+      this.router.navigate(['error']);
     }).unsubscribe;
   }
 

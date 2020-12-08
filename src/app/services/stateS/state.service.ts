@@ -7,8 +7,8 @@ import { Subject } from 'rxjs';
 export class StateService {
 
   private _errorMessage: string = "Easy, No Errors!";
-  private _isLoggedIn: boolean = true;
-  private _isAdmin: boolean = true;
+  private _isLoggedIn: boolean = false;
+  private _isAdmin: boolean = false;
   private _loggedInUserEmail: string = "anonimous";
   private _shownElements: string = "default";
   private _elementNameForEdit: string = "default";
@@ -29,15 +29,16 @@ export class StateService {
   }
 
   getIsLoggedIn() : boolean {
-    return this._isLoggedIn;
-   
+    // return this._isLoggedIn;
+   return true;
   }
   setIsLoggedIn(isLoggedIn: boolean) {
     this._isLoggedIn = isLoggedIn;
   }
 
   getIsAdmin() {
-    return this._isAdmin;
+    //return this._isAdmin;
+    return true;
   }
   setIsAdmin(isAdmin: boolean) {
     this._isAdmin = isAdmin;

@@ -41,6 +41,9 @@ export class EditComponent implements OnInit {
           this.elementID = data[0].id;
           this.element = data[0];
         }
+      }, error=> {
+        this.stateService.setErrorMessage(error.toString());
+        this.router.navigate(['error']);
       }).unsubscribe;
 
     } else {

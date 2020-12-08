@@ -23,7 +23,14 @@ export class ShowComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.elementCategory = this.stateService.getShownElements()+'S'+'   COLLECTION';
+    let shownElement: string = this.stateService.getShownElements();
+    
+    if(shownElement.localeCompare('QUARTZ') == 0){
+      this.elementCategory = this.stateService.getShownElements()+'ES'+'   COLLECTION';
+    } else {
+      this.elementCategory = this.stateService.getShownElements()+'S'+'   COLLECTION';
+    }
+  
     this.elements$ = this.elementService.loadElementsByType(this.stateService.getShownElements());
   }
 

@@ -23,5 +23,38 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/show']);
   }
 
+  showResistors() {
+    this.stateService.setShownElements("RESISTOR");
+    this.router.navigate(['/show']);
+  }
 
+  showCapacitors() {
+    this.stateService.setShownElements("CAPACITOR");
+    this.router.navigate(['/show']);
+  }
+
+  showDiodes() {
+    this.stateService.setShownElements("DIODE");
+    this.router.navigate(['/show']);
+  }
+
+  showICircuits() {
+    this.stateService.setShownElements("ICIRCUIT");
+    this.router.navigate(['/show']);
+  }
+
+  showTubes() {
+    this.stateService.setShownElements("TUBE");
+    this.router.navigate(['/show']);
+  }
+
+  showQuartzes() {
+    this.stateService.setShownElements("QUARTZ");
+    this.router.navigate(['/show']);
+  }
+
+  showEMechanicals() {
+    this.stateService.setShownElements("ELECTROMECHANICAL");
+    this.router.navigate(['/show']);
+  }
 }

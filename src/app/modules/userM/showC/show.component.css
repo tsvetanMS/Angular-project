@@ -10,15 +10,18 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-bottom: 50px;
+    
 }
 
 .holder {
     width: 320px;
-    /* margin-top: 20px; */
-    border: 4px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 6px solid black;
     padding: 5px;
     box-shadow: inset 0px 0px 5px 5px rgba(0,0,0,0.1);
-
+    border-radius: 3px;
 }
 
 img {
@@ -29,4 +32,9 @@ h2 {
     text-align: center;
     /* border: 2px solid red; */
     color: green;
+}
+
+.like {
+    display: flex;
+    justify-content: space-around;
 }

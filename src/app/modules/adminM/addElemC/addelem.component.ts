@@ -13,7 +13,7 @@ export class AddelemComponent implements OnInit {
   typesArr: string [];
 
   constructor(private elementsService: ElementsService, private router: Router, private stateService: StateService) { 
-    this.typesArr = new Array("TRANSISTOR", "RESISTOR", "CAPACITOR", "DIODE", "ICIRCUIT", "TUBE", "QUARTS", "ELECTROMECHANICAL" );
+    this.typesArr = new Array("TRANSISTOR", "RESISTOR", "CAPACITOR", "DIODE", "ICIRCUIT", "TUBE", "QUARTZ", "ELECTROMECHANICAL" );
   }
 
   ngOnInit(): void {
