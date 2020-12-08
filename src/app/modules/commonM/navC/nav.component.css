@@ -54,3 +54,13 @@ li:hover {
 .change-pointer {
     cursor: pointer;
 }
+
+.symbol-holder {
+    position: relative;
+}
+
+.symbol-holder {
+    position: absolute;
+    margin-left: 320px;
+    margin-top: 15px;
+}
