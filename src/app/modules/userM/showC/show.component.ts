@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IElement } from 'src/app/models/element.model';
 import { ElementsService } from 'src/app/services/elementsS/elements.service';
@@ -15,7 +16,7 @@ export class ShowComponent implements OnInit {
 
   elements$: Observable<IElement[]>;
 
-  constructor(private elementService: ElementsService, private stateService: StateService) {
+  constructor(private elementService: ElementsService, private stateService: StateService, private router: Router) {
 
         this.elements$ = new Observable<IElement[]>();              
   }
@@ -32,6 +33,10 @@ export class ShowComponent implements OnInit {
     }
   
     this.elements$ = this.elementService.loadElementsByType(this.stateService.getShownElements());
+  }
+
+  largePicture(pictureID: string){
+    this.router.navigate(['/picture', pictureID]);
   }
 
 }

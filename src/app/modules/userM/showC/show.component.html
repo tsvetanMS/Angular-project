@@ -5,7 +5,7 @@
     <h2> {{ elementCategory }} </h2>
     <section class="section-flex">
         <div class="holder" *ngFor="let elem of elements$ | async">
-            <img src="https://drive.google.com/uc?export=view&id={{elem.pictureID}}" alt="Element picture" height="240" width="320"/>
+            <a (click)="largePicture(elem.pictureID)"><img src="https://drive.google.com/uc?export=view&id={{elem.pictureID}}" alt="Element picture" height="240" width="320"/></a>
             <p> Name: {{ elem.name }}</p>
             <p> Parameters: {{ elem.parameters }}</p>    
             <p> Contry of origin: {{elem.producer }}</p>

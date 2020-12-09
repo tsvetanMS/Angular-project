@@ -17,6 +17,7 @@ import { LogoutComponent } from './modules/authM/logoutC/logout.component';
 import { RegisterComponent } from './modules/authM/registerC/register.component';
 import { AboutComponent } from './modules/commonM/aboutC/about.component';
 import { HomeComponent } from './modules/userM/homeC/home.component';
+import { PictureComponent } from './modules/userM/pictureC/picture.component';
 import { ShowComponent } from './modules/userM/showC/show.component';
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent},
   { path: 'underconstruction', component: UnderconstructionComponent},
   { path: 'exist', component: AlreadyexistComponent},
+  { path: 'picture/:pictureID', component: PictureComponent},
   { path: '**', component: HomeComponent}
 
 
