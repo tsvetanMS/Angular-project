@@ -26,7 +26,7 @@ export class RegisterComponent implements OnInit {
       
       this.authService.registerUser(email, password);
            
-      this.authService.saveUser(email, 'user');
+    
 
   }
 //---------------------------------------------------------------------------------------------------------------------------------  

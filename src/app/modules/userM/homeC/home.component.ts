@@ -10,12 +10,16 @@ import { StateService } from 'src/app/services/stateS/state.service';
 export class HomeComponent implements OnInit {
 
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(private stateService: StateService,
               private router: Router) { }
 
   ngOnInit(): void {
     this.isLoggedIn = this.stateService.getIsLoggedIn();
+    this.isAdmin = this.stateService.getIsAdmin();
+    console.log("В ngOnInit на Home компонента сме. Потребителя е: ", this.isAdmin);
+    
   }
 
   showTransistors() {

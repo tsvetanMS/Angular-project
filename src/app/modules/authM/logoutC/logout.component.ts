@@ -13,8 +13,11 @@ export class LogoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*
   backToHome() {
-    this.router.navigate(['/home']);
+
+    this.router.navigate(['']);
   }
+*/
 
 }

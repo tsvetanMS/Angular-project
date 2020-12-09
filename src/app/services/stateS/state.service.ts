@@ -29,16 +29,16 @@ export class StateService {
   }
 
   getIsLoggedIn() : boolean {
-    // return this._isLoggedIn;
-   return true;
+    return this._isLoggedIn;
+   // return true;
   }
   setIsLoggedIn(isLoggedIn: boolean) {
     this._isLoggedIn = isLoggedIn;
   }
 
   getIsAdmin() {
-    //return this._isAdmin;
-    return true;
+    return this._isAdmin;
+    // return true;
   }
   setIsAdmin(isAdmin: boolean) {
     this._isAdmin = isAdmin;

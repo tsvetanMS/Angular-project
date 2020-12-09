@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { AddelemComponent } from './addElemC/addelem.component';
 import { FormsModule } from '@angular/forms';
 import { AddmessageComponent } from './addMessageC/addmessage.component';
-import { AdminconsoleComponent } from './adminConsoleC/adminconsole.component';
 import { EditComponent } from './editC/edit.component';
 import { DeletemessageComponent } from './deleteMessageC/deletemessage.component';
 import { EditmessageComponent } from './editMessageC/editmessage.component';
@@ -17,10 +16,10 @@ import { AlreadyexistComponent } from './alreadyExistC/alreadyexist.component';
 
 
 @NgModule({
-  declarations: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
+  declarations: [AddelemComponent, AddmessageComponent, EditComponent, DeletemessageComponent,
                  EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
                  AlreadyexistComponent],
-  exports: [AddelemComponent, AddmessageComponent, AdminconsoleComponent, EditComponent, DeletemessageComponent,
+  exports: [AddelemComponent, AddmessageComponent, EditComponent, DeletemessageComponent,
             EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
             AlreadyexistComponent],
   imports: [

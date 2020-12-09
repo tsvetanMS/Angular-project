@@ -1,4 +1,5 @@
-<app-nav></app-nav>
+<app-nav *ngIf="!isAdmin"></app-nav>
+<app-adminconsole *ngIf="isAdmin"></app-adminconsole>
 
 <section>
     <h1>Something wrong happened!</h1>

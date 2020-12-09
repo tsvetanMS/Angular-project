@@ -10,7 +10,8 @@ import { StateService } from 'src/app/services/stateS/state.service';
 export class ErrorComponent implements OnInit {
 
  
-  errorMessage: string = "Default Error!"
+  errorMessage: string = "Default Error!";
+  isAdmin: boolean = false;
 
   constructor(private stateService: StateService,
               private router: Router) { }
@@ -18,7 +19,8 @@ export class ErrorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.errorMessage = this.stateService.getErrorMessage();  
+    this.errorMessage = this.stateService.getErrorMessage(); 
+    this.isAdmin = this.stateService.getIsAdmin(); 
   }
 
   backToHome() {

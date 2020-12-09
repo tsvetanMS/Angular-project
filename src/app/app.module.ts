@@ -8,6 +8,8 @@ import { MyCommonModule } from './modules/commonM/common.module';
 import { UserModule } from './modules/userM/user.module';
 import { AuthModule } from './modules/authM/auth.module';
 import { AdminModule } from './modules/adminM/admin.module';
+import { GuardIsAdmin } from './guards/authroutesadmin.service';
+import { GuardIsLogged } from './guards/authrouteslogged.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,7 @@ import { AdminModule } from './modules/adminM/admin.module';
     AuthModule,
     AdminModule
   ],
-  providers: [],
+  providers: [GuardIsAdmin, GuardIsLogged],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

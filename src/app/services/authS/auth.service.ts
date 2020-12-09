@@ -11,8 +11,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AuthService {
 
-  rolesDateLength: number = 0;
-  rolesDate: IUser[] = [];
+  rolesDataLength: number = 0;
+  rolesData: IUser[] = [];
 
 
   constructor(private firebaseAuth: AngularFireAuth,
@@ -29,7 +29,10 @@ export class AuthService {
             
             this.stateService.setIsLoggedIn(true);
             this.stateService.setLoggedInUserEmail(email); 
-             this.router.navigate(['/home']);
+            this.stateService.setIsAdmin(false);
+            this.saveUser(email, 'user');
+
+            this.router.navigate(['/home']);
 
     })
     .catch(err => {
@@ -46,18 +49,35 @@ export class AuthService {
 //-----------------------------------------------------------------------------------------------------------------------------
 
   login(email: string, password: string) {
+
     this.firebaseAuth.signInWithEmailAndPassword(email, password)
     .then(data => {
       console.log(data);
       this.stateService.setIsLoggedIn(true);
       this.stateService.setLoggedInUserEmail(email);
-       this.router.navigate(['/home']);
     })
     .catch(err=> {
       console.log(err);
       this.stateService.setErrorMessage(err.toString());
        this.router.navigate(['/error']);
     })
+
+    this.getUserByEmail(email).subscribe(user => {
+
+      console.log("В login service-а сме. Данните за потребителя са: " + user[0].role);
+
+      if('user'.localeCompare(user[0].role) == 0) {
+        this.stateService.setIsAdmin(false);
+      } else {
+        this.stateService.setIsAdmin(true);
+      }
+      console.log("Потребителя е set-нат на: " + this.stateService.getIsAdmin());
+
+    }).unsubscribe;
+    
+      console.log("В login service-а сме. Потребителя е: ", this.stateService.getIsAdmin());
+ 
+
   }
 //-------------------------------------------------------------------------------------------------------------------------
   logout() {
@@ -65,6 +85,7 @@ export class AuthService {
     this.firebaseAuth.signOut();
     this.stateService.setIsLoggedIn(false);
     this.stateService.setLoggedInUserEmail('anonimous');
+    this.stateService.setIsAdmin(false);
     console.log("Излезли сме и се прехвърляме към Home.")
     this.router.navigate(['/logout']);
   }
@@ -91,4 +112,9 @@ saveUser(email: string, role: string) {
 }
 //----------------------------------------------------------------------------------------------------------------------------
 
+getUserByEmail(email: string): Observable<IUser[]> {
+  return this.firebaseDB.collection<IUser>('roles', (ref) => ref.where('email', '==', email))
+  .valueChanges();
+}
+//---------------------------------------------------------------------------------------------------------------------------
 }
