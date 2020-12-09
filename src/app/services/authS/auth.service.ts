@@ -5,6 +5,7 @@ import { IUser } from 'src/app/models/user.model';
 import { StateService } from '../stateS/state.service';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,54 @@ saveUser(email: string, role: string) {
 getUserByEmail(email: string): Observable<IUser[]> {
   return this.firebaseDB.collection<IUser>('roles', (ref) => ref.where('email', '==', email))
   .valueChanges();
+}
+//---------------------------------------------------------------------------------------------------------------------------
+promoteUserToAdmin(email: string){
+    console.log("В promoteUserToAdmin() сме. Ще заредим user-a заедно с id-to.")
+    let userID: string = "";
+
+    this.loadUserByEmailWithId(email).subscribe(user => {
+      console.log("Данните за потребителя са получени: ", user);
+      userID = user[0].id;
+
+      console.log("ID-то би трябвало да е вече заредено: ID-то е:" + userID);
+
+    }).unsubscribe;
+
+
+    setTimeout(() => {
+      console.log("ID-то би трябвало да е вече заредено: ID-то е:" + userID);
+
+      this.firebaseDB.collection<IUser>('roles').doc(userID).update({ email, role: 'admin' })
+      .then(() => {
+        console.log("Ролята е променена на admin.")
+      })
+      .catch(error => {
+          this.stateService.setErrorMessage(error.toString());
+          console.log(error.toString());
+          this.router.navigate(['/error']);
+      })
+    }, 1000);
+    
+    
+   
+ }
+
+//----------------------------------------------------------------------------------------------------------------------------
+loadUserByEmailWithId (email: string): Observable<any> {
+ 
+  return this.firebaseDB.collection<IUser>('roles', (ref) => ref.where('email', '==', email))
+      .snapshotChanges()
+      .pipe(
+          map(docArray => {
+              return docArray.map(e => {
+                  return {
+                      id: e.payload.doc.id,
+                      ...e.payload.doc.data()
+                  }
+              })
+          })
+      );
 }
 //---------------------------------------------------------------------------------------------------------------------------
 }

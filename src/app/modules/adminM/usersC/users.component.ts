@@ -22,4 +22,8 @@ export class UsersComponent implements OnInit {
     this.users$ = this.authService.getAllUsers();
   }
 
+  promoteToAdmin(email: string) {
+    console.log("В Users компонента сме, викаме promoteUserToAdmin() с email: " + email);
+    this.authService.promoteUserToAdmin(email);
+  }
 }

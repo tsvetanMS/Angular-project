@@ -5,9 +5,22 @@
     <h2> Users List </h2>
     <hr>
         <div class="holder" *ngFor="let user of users$ | async">
-            <p> Username: {{ user.email }}</p>
-            <p> Role: {{ user.role }}</p>    
+            <p> username: {{ user.email }}</p>
+            <div class="role-plus-button">
+                <p> <span class="role">{{ user.role }}</span></p>
+            <p *ngIf="user.role.localeCompare('user') == 0" >
+                <button  (click)="promoteToAdmin(user.email)">Promote to Admin</button>
+            </p>
+            <p *ngIf="user.role.localeCompare('user') != 0" >
+                <button class="invisible">Promote to Admin</button>
+            </p>
+            </div>
+           
+                
         </div>
 
    <hr>
 </section>
+
+<app-footer></app-footer>
+

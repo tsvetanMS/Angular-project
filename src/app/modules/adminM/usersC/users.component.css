@@ -28,8 +28,6 @@ button {
     background-color: greenyellow;
     color: black;
     border-radius: 8px;
-    margin-top: 50px;
-    margin-bottom: 20px;
     cursor: pointer;
     
 }
@@ -38,4 +36,23 @@ button {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+}
+
+
+.invisible {
+    border: none;
+    background-color: transparent;
+    color: transparent;
+}
+
+.role {
+    text-transform: uppercase;
+    color: green;
+    font-weight: 600;
+}
+
+.role-plus-button {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
 }
