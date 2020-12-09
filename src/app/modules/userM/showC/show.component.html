@@ -5,18 +5,19 @@
     <h2> {{ elementCategory }} </h2>
     <section class="section-flex">
         <div class="holder" *ngFor="let elem of elements$ | async">
-            <a (click)="largePicture(elem.pictureID)"><img src="https://drive.google.com/uc?export=view&id={{elem.pictureID}}" alt="Element picture" height="240" width="320"/></a>
-            <p> Name: {{ elem.name }}</p>
-            <p> Parameters: {{ elem.parameters }}</p>    
-            <p> Contry of origin: {{elem.producer }}</p>
-            <p> Description: {{elem.description}} </p>
+            <a (click)="largePicture(elem.pictureID)"><img
+                    src="https://drive.google.com/uc?export=view&id={{elem.pictureID}}" alt="Element picture"
+                    height="240" width="320" /></a>
+            <p> <span class="title">Name: </span> {{ elem.name }} </p>
+            <p> <span class="title">Parameters: </span> {{ elem.parameters }} </p>
+            <p> <span class="title">Contry of origin: </span> {{elem.producer }} </p>
+            <p> <span class="title">Description: </span> {{elem.description}} </p>
             <span class="like">
-            <span><i class="far fa-thumbs-up"></i> 200</span>
-            <span><i class="far fa-thumbs-down"></i> 100</span>
+                <button class="like-button"><i class="far fa-thumbs-up"></i> 200 </button>
+                <button class="unlike-button"><i class="far fa-thumbs-down"></i> 100</button>
             </span>
+
         </div>
     </section>
-   
+
 </section>
-
-
