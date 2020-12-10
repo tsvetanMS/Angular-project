@@ -14,8 +14,8 @@
             <input size="30" class="input-email" type="text" placeholder="enter email here" name="email" id="email" ngModel required email #emailInput="ngModel">
           </span>
           
-          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.required"> Полето за email неможе да е празно!</div>
-          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.email"> Въведения email е грешен!</div>
+          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.required"> Email field can not be empty! </div>
+          <div class="input-errors" *ngIf="emailInput.touched && emailInput.errors?.email"> Entered email is with wrong format! </div>
         </div>
         
         <div>
@@ -23,8 +23,8 @@
           <label class="password-label" for="password"><b>Password</b></label>
           <input size="30" class="input-password" type="password" placeholder="enter password here" name="password" id="password" minlength="6" ngModel required #passwordInput="ngModel">
           </span>
-          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.required"> Полето за парола неможе да е празно!</div>
-          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.minlength"> Дължината на паролата е минимум 6 символа! </div>
+          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.required"> Password field can not be empty! </div>
+          <div class="input-errors" *ngIf="passwordInput.touched && passwordInput.errors?.minlength"> Password lenght must be minimum 6 symbols! </div>
         </div>
         
         <div>
@@ -32,9 +32,9 @@
           <label class="repassword-label" for="repassword"><b>Repeat Password</b></label>
           <input size="30" class="input-repassword" type="password" placeholder="repeat password here" name="repassword" id="repassword"  minlength="6" ngModel required #repasswordInput="ngModel">
           </span>
-          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.errors?.required"> Полето за потвърждаване на паролата неможе да е празно!</div>
-          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.errors?.minlength"> Дължината на паролата е минимум 6 символа! </div>
-          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.touched && passwordInput.value.localeCompare(repasswordInput.value) != 0">Двете пароли не съвпадат!</div>
+          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.errors?.required"> Confirm password fild can not be empty! </div>
+          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.errors?.minlength"> Re-password lenght must be minimum 6 symbols </div>
+          <div class="input-errors" *ngIf="repasswordInput.touched && repasswordInput.touched && passwordInput.value.localeCompare(repasswordInput.value) != 0"> Password and re-password doesn't match! </div>
         </div>
       </div>   
       
