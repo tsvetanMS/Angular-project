@@ -13,8 +13,8 @@
             <p> <span class="title">Contry of origin: </span> {{elem.producer }} </p>
             <p> <span class="title">Description: </span> {{elem.description}} </p>
             <span class="like">
-                <button class="like-button"><i class="far fa-thumbs-up"></i> 200 </button>
-                <button class="unlike-button"><i class="far fa-thumbs-down"></i> 100</button>
+                <button class="like-button"  (click)="goToUnderConstruction()" type="submit"><i class="far fa-thumbs-up"></i> 200 </button>
+                <button class="unlike-button" (click)="goToUnderConstruction()" type="submit"><i class="far fa-thumbs-down"></i> 100</button>
             </span>
 
         </div>

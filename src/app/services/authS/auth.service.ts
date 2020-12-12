@@ -5,7 +5,7 @@ import { IUser } from 'src/app/models/user.model';
 import { StateService } from '../stateS/state.service';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +56,7 @@ export class AuthService {
       console.log(data);
       this.stateService.setIsLoggedIn(true);
       this.stateService.setLoggedInUserEmail(email);
+
     })
     .catch(err=> {
       console.log(err);
@@ -63,7 +64,7 @@ export class AuthService {
        this.router.navigate(['/error']);
     })
 
-    this.getUserByEmail(email).subscribe(user => {
+    this.getUserByEmail(email).pipe(take(1)).subscribe(user => {
 
       console.log("В login service-а сме. Данните за потребителя са: " + user[0].role);
 
@@ -74,7 +75,7 @@ export class AuthService {
       }
       console.log("Потребителя е set-нат на: " + this.stateService.getIsAdmin());
 
-    }).unsubscribe;
+    });
     
       console.log("В login service-а сме. Потребителя е: ", this.stateService.getIsAdmin());
  
@@ -154,7 +155,7 @@ loadUserByEmailWithId (email: string): Observable<any> {
  
   return this.firebaseDB.collection<IUser>('roles', (ref) => ref.where('email', '==', email))
       .snapshotChanges()
-      .pipe(
+      .pipe(take(1),
           map(docArray => {
               return docArray.map(e => {
                   return {

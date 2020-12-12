@@ -33,10 +33,19 @@ export class ShowComponent implements OnInit {
     }
   
     this.elements$ = this.elementService.loadElementsByType(this.stateService.getShownElements());
+
+    console.log("Следва извикване на метода saveStatistics().");
+    this.elementService.saveStatistics();
   }
 
   largePicture(pictureID: string){
     this.router.navigate(['/picture', pictureID]);
   }
 
+  goToUnderConstruction() {
+    this.router.navigate(['/underconstruction']);
+  }
+
+
+  
 }

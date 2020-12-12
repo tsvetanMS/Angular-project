@@ -15,6 +15,7 @@ export class StateService {
   private _isDeleted: boolean = false;
   private _isEdited: boolean = false;
   private _isElementExist: boolean = false;
+  private _numberOfVisits: number = 1;
 
  
 
@@ -83,4 +84,10 @@ export class StateService {
     this._isElementExist = isExist;
   }
 
+  getNumebrOfVisits(): number {
+    return this._numberOfVisits;
+  }
+  setNumberOfVisits(visits: number) {
+    this._numberOfVisits = visits;
+  }
 }

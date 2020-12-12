@@ -31,7 +31,7 @@ export class AdminconsoleComponent implements OnInit {
   }
 
   goToStatistics() {
-    this.router.navigate(['/underconstruction']);
+    this.router.navigate(['/stats']);
   }
 
   goBack() {

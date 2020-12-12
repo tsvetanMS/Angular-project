@@ -1,0 +1,17 @@
+<app-adminconsole></app-adminconsole>
+
+
+<section>
+    <h2> Visits by elements category</h2>
+    <hr>
+        <div class="holder" *ngFor="let visit of visits$ | async">
+            <p> {{ visit.element }}</p>
+            <p> {{ visit.visits }} </p>
+
+        </div>
+
+   <hr>
+</section>
+
+<app-footer></app-footer>
+

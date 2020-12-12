@@ -9,7 +9,7 @@ import { EditComponent } from './modules/adminM/editC/edit.component';
 import { EditmessageComponent } from './modules/adminM/editMessageC/editmessage.component';
 import { FindComponent } from './modules/adminM/findC/find.component';
 import { NotfoundComponent } from './modules/adminM/notFoundC/notfound.component';
-import { UnderconstructionComponent } from './modules/adminM/underconstructionC/underconstruction.component';
+import { UnderconstructionComponent } from './modules/commonM/underconstructionC/underconstruction.component';
 import { UsersComponent } from './modules/adminM/usersC/users.component';
 import { AutherrorComponent } from './modules/authM/authErrorC/autherror.component';
 import { LoginComponent } from './modules/authM/loginC/login.component';
@@ -21,6 +21,7 @@ import { PictureComponent } from './modules/userM/pictureC/picture.component';
 import { ShowComponent } from './modules/userM/showC/show.component';
 import { GuardIsAdmin } from './guards/authroutesadmin.service';
 import { GuardIsLogged } from './guards/authrouteslogged.service';
+import { StatComponent } from './modules/adminM/statC/stat.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'deletemessage', component: DeletemessageComponent, canActivate: [GuardIsAdmin, GuardIsLogged]},
   { path: 'addmessage', component: AddmessageComponent, canActivate: [GuardIsAdmin, GuardIsLogged]},
   { path: 'users', component: UsersComponent, canActivate: [GuardIsAdmin]},
-  { path: 'underconstruction', component: UnderconstructionComponent},
+  { path: 'underconstruction', component: UnderconstructionComponent, canActivate: [GuardIsLogged]},
+  { path: 'stats', component: StatComponent, canActivate: [GuardIsAdmin, GuardIsLogged]},
   { path: 'exist', component: AlreadyexistComponent, canActivate: [GuardIsAdmin, GuardIsLogged]},
   { path: 'picture/:pictureID', component: PictureComponent},
   { path: '**', component: HomeComponent}

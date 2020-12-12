@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { IElement } from '../../models/element.model';
 import { IElementID } from '../../models/element-plus-id.model'
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { StateService } from '../stateS/state.service';
+import { IStat } from 'src/app/models/stat.model';
+
 // import 'rxjs/add/operator/toPromise';
 
 
@@ -98,7 +100,7 @@ loadElementByNameWithId (name: string): Observable<any> {
    console.log("Вътре сме в service метода loadEelemntByNameWithId");
    return this.fireDB.collection<IElement>('elements', (ref) => ref.where('name', '==', name))
        .snapshotChanges()
-       .pipe(
+       .pipe(take(1),
            map(docArray => {
                return docArray.map(e => {
                    return {
@@ -113,7 +115,7 @@ loadElementByNameWithId (name: string): Observable<any> {
 //------------------------------------------------------------------------------------------------------------------------------------------
 loadElementByName (name: string): Observable<IElement[]> {
    return this.fireDB.collection<IElement>('elements', (ref) => ref.where('name', '==', name))
-   .valueChanges();
+   .valueChanges().pipe(take(1));
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -150,10 +152,61 @@ checkExistenceOfElementByName(name: string) {
         } else {
            this.stateService.setIsElementExist(true);
         }
-
+        
     }).unsubscribe;
     
        
 }
-//---------------------------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------------------------
+
+getAllStats(): Observable<IStat[]> {
+    return this.fireDB.collection<IStat>('stats').valueChanges();
+}
+//--------------------------------------------------------------------------------------------------------------------------------
+
+saveStatistics() {
+    console.log("Извикали сме метода saveStatistcis()");
+    let shownElement: string = "";
+    shownElement = this.stateService.getShownElements();
+    let id = shownElement.toLowerCase();
+    let visits: number;
+    this.getElementStatistics(shownElement);
+
+    setTimeout(()=> {
+
+    
+    visits = this.stateService.getNumebrOfVisits();
+    visits = visits + 1;
+
+    console.log("Показаните елементи са от категория: " + shownElement);
+    console.log("Посещенията ще бъдат - брой: " + visits);
+
+    this.fireDB.collection<IStat>('stats').doc(id).update({ element: shownElement, visits: visits })
+    .then(() => {
+        console.log('Статистиката за елемента е записана.');
+        
+    })
+    .catch(error => {
+        this.stateService.setErrorMessage(error.toString());
+        console.log(error.toString());
+        this.router.navigate(['/error']);
+    })
+    }, 1000);
+    
+
+}
+//----------------------------------------------------------------------------------------------------------------------------------
+getElementStatistics(shownElement: string) {
+
+    this.fireDB.collection<IStat>('stats', (ref) => ref.where('element', '==', shownElement))
+   .valueChanges().pipe(take(1)).subscribe(data => {
+       let numberOfVisits = data[0].visits;
+
+        console.log('Информацията за посещенията е тук - посещения:  ', numberOfVisits);
+        this.stateService.setNumberOfVisits(numberOfVisits);
+           
+   });
+
+}
+//------------------------------------------------------------------------------------------------------------------------------------
 }

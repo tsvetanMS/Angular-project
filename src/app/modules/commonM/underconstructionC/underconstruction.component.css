@@ -1,0 +1,11 @@
+
+section {
+    display: flex;
+    justify-content: space-around;
+}
+
+p {
+    font-size: 2em;;
+    color: green;
+    text-align: center;
+}

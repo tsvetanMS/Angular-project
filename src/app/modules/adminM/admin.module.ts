@@ -10,17 +10,18 @@ import { FindComponent } from './findC/find.component';
 import { NotfoundComponent } from './notFoundC/notfound.component';
 import { UsersComponent } from './usersC/users.component';
 import { MyCommonModule } from '../commonM/common.module';
-import { UnderconstructionComponent } from './underconstructionC/underconstruction.component';
 import { AlreadyexistComponent } from './alreadyExistC/alreadyexist.component';
+import { StatComponent } from './statC/stat.component';
 
 
 
 @NgModule({
   declarations: [AddelemComponent, AddmessageComponent, EditComponent, DeletemessageComponent,
-                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
-                 AlreadyexistComponent],
+                 EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent,
+                 AlreadyexistComponent,
+                 StatComponent],
   exports: [AddelemComponent, AddmessageComponent, EditComponent, DeletemessageComponent,
-            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent, UnderconstructionComponent,
+            EditmessageComponent, FindComponent, NotfoundComponent, UsersComponent,
             AlreadyexistComponent],
   imports: [
     CommonModule,
