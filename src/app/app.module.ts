@@ -22,7 +22,8 @@ import { GuardIsLogged } from './guards/authrouteslogged.service';
     MyCommonModule,
     UserModule,
     AuthModule,
-    AdminModule
+    // За да направя Lazy Loading на admin модула вече не го импортвам тук
+    //AdminModule
   ],
   providers: [GuardIsAdmin, GuardIsLogged],
   bootstrap: [AppComponent]

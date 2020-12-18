@@ -12,6 +12,7 @@ import { UsersComponent } from './usersC/users.component';
 import { MyCommonModule } from '../commonM/common.module';
 import { AlreadyexistComponent } from './alreadyExistC/alreadyexist.component';
 import { StatComponent } from './statC/stat.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 
@@ -26,7 +27,8 @@ import { StatComponent } from './statC/stat.component';
   imports: [
     CommonModule,
     FormsModule,
-    MyCommonModule
+    MyCommonModule,
+    AdminRoutingModule
   ]
 })
 export class AdminModule { }

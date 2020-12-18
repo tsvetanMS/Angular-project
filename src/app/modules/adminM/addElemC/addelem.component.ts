@@ -38,7 +38,7 @@ export class AddelemComponent implements OnInit {
     setTimeout(() => {
       
       if(this.stateService.getIsElementExist()) {
-        this.router.navigate(['/exist']);
+        this.router.navigate(['/admin/exist']);
       } else {
         this.elementsService.saveElement(pictureID, type, name, parameters, producer, description);
       }

@@ -60,7 +60,7 @@ deleteElement(id: string) {
        console.log('Element is deleted!');
        this.stateService.setIsDeleted(true);
        this.stateService.setElementNameForEdit("default");
-       this.router.navigate(['/deletemessage']);
+       this.router.navigate(['/admin/deletemessage']);
        
    })
    .catch(error => {
@@ -132,7 +132,7 @@ saveElement(pictureID: string, type: string, name: string, parameters: string, p
 
    this.fireDB.collection<IElement>('elements').add({pictureID, type, name, parameters, producer, description })
    .then(() => {
-       this.router.navigate(['/addmessage']);
+       this.router.navigate(['/admin/addmessage']);
    })
    .catch(error => {
        this.stateService.setErrorMessage(error.toString());
@@ -172,6 +172,7 @@ saveStatistics() {
     let visits: number;
     this.getElementStatistics(shownElement);
 
+    
     setTimeout(()=> {
 
     

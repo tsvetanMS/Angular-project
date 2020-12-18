@@ -19,19 +19,19 @@ export class AdminconsoleComponent implements OnInit {
 
 
   goToAddElement() {
-    this.router.navigate(['/add']);
+    this.router.navigate(['/admin/add']);
   }
 
   goToFindElement() {
-    this.router.navigate(['/find']);
+    this.router.navigate(['/admin/find']);
   }
 
   goToManageUsers() {
-    this.router.navigate(['/users']);
+    this.router.navigate(['/admin/users']);
   }
 
   goToStatistics() {
-    this.router.navigate(['/stats']);
+    this.router.navigate(['/admin/stats']);
   }
 
   goBack() {

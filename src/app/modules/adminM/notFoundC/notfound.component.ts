@@ -14,6 +14,6 @@ export class NotfoundComponent implements OnInit {
   }
 
   backToFind() {
-    this.router.navigate(['find']);
+    this.router.navigate(['/admin/find']);
   }
 }

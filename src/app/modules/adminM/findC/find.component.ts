@@ -34,11 +34,11 @@ export class FindComponent implements OnInit {
       console.log(data);
 
       if(data.length == 0) {
-          this.router.navigate(['/notfound']);
+          this.router.navigate(['/admin/notfound']);
       } else {
           
           this.stateService.setElementNameForEdit(name);
-          this.router.navigate(['/edit']);
+          this.router.navigate(['/admin/edit']);
       }
 
 

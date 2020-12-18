@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
       }).unsubscribe;
 
     } else {
-      this.router.navigate(['/editmessage']);
+      this.router.navigate(['/admin/editmessage']);
     }
   }
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -55,13 +55,13 @@ export class EditComponent implements OnInit {
     this.elementService.updateElement(this.elementID, this.element.pictureID, this.element.type, this.element.name,
       this.element.parameters, this.element.producer, this.element.description);
 
-    this.router.navigate(['/editmessage']);
+    this.router.navigate(['/admin/editmessage']);
 
   }
 //--------------------------------------------------------------------------------------------------------------------------------
   deleteElement() {
     this.elementService.deleteElement(this.elementID);
-    this.router.navigate(['/deletemessage']);
+    this.router.navigate(['/admin/deletemessage']);
   }
 //--------------------------------------------------------------------------------------------------------------------------------
   ngOnDestroy() {

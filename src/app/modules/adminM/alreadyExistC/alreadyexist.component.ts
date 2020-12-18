@@ -14,6 +14,6 @@ export class AlreadyexistComponent implements OnInit {
   }
 
   goBackToAddElement() {
-    this.router.navigate(['/add']);
+    this.router.navigate(['/admin/add']);
   }
 }
